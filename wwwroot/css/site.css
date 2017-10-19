@@ -1,0 +1,48 @@
+/*Write all of your CSS here*/
+#register {
+    display: inline-block;
+}
+#login {
+    display: inline-block;
+    float: right;
+    vertical-align: top;
+}
+span {
+    color: red;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+#logout {
+    float: right;
+    margin-top: 50px;
+}
+button {
+    float: right;
+}
+#title {
+    text-align: center;
+}
+#nav {
+    float: right;
+    margin-top: 50px;
+}
+h1 {
+    display: inline-block;
+}
+h4 {
+    display: inline-block;
+    margin-left: 50px;
+}

@@ -1,0 +1,46 @@
+@model the_project.Models.ActivityViewModel
+@{
+    ViewData["Title"] = "New Activity";
+}
+<h1>Dojo Activity Center</h1>
+<div id="nav">
+    <a href="/Home">Home</a> | 
+    <a href="/logout">Log off</a>
+</div>
+<hr>
+<br>
+<h2>Create an Activity!</h2>
+<form asp-controller="Activities" asp-action="NewActivity" method="post">
+    <label asp-for="Title"></label>
+    <input asp-for="Title">
+    <span asp-validation-for="Title"></span>
+    <br><br>
+
+    <label asp-for="Date"></label>
+    <input asp-for="Date">
+    <span>@ViewBag.Error</span>
+    <span asp-validation-for="Date"></span>
+    <br><br>
+
+    <label asp-for="Time"></label>
+    <input asp-for="Time">
+    <span asp-validation-for="Time"></span>
+    <br><br>
+
+    <label asp-for="Duration"></label>
+    <input asp-for="Duration">
+    <select name="units" id="units">
+        <option value="Days">Days</option>
+        <option value="Hours">Hours</option>
+        <option value="Minutes">Minutes</option>
+    </select>
+    <span asp-validation-for="Duration"></span>
+    <br><br>
+
+    <label asp-for="Description"></label>
+    <input asp-for="Description">
+    <span asp-validation-for="Description"></span>
+    <br><br>
+
+    <input type="submit" value="Create Activity">
+</form>

@@ -1,0 +1,56 @@
+@{
+    ViewData["Title"] = "Home";
+}
+<h1>Dojo Activity Center</h1>
+<h4>Welcome, @ViewBag.CurrentUser.First_Name !</h4>
+<a href="/logout" id="logout">Log off</a>
+<hr>
+<br>
+<table>
+    <tr>
+        <th>Activity</th>
+        <th>Date and Time</th>
+        <th>Duration</th>
+        <th>Event Coordinator</th>
+        <th>Number of Participants</th>
+        <th>Actions</th>
+    </tr>
+@{
+    foreach(var activity in @ViewBag.AllActivities)
+    {
+        bool CheckAttendance = false;
+        <tr>
+            <td><a href="/activity/@activity.Activity_Id">@activity.Title</a></td>
+            <td>@activity.Date.ToString("MM/d") at @activity.Time.ToString("hh:mm tt")</td>
+            <td>@activity.Duration @activity.Value</td>
+            <td>@activity.Coordinator</td>
+            <td>@activity.Participants.Count</td>
+            <td>
+                @if(activity.User_Id == ViewBag.CurrentUser.User_Id)
+                {
+                    <a href="/delete/@activity.Activity_Id">Delete</a>
+                }
+                else
+                {
+                    @foreach(var p in @activity.Participants)
+                    {
+                        @if(p.User_Id == ViewBag.CurrentUser.User_Id)
+                        {
+                            CheckAttendance = true;
+                        }
+                    }
+                    @if(CheckAttendance)
+                    {
+                        <a href="/leave/@activity.Activity_Id">Leave</a>
+                    }
+                    else 
+                    {
+                        <a href="/join/@activity.Activity_Id">Join</a>
+                    }
+                }
+            </td>
+        </tr>
+    }
+}
+</table>
+<button><a href="New">Add New Activity!</a></button>

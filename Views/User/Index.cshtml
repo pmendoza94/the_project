@@ -1,0 +1,52 @@
+@model the_project.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Login/Registration";
+}
+<h1 id="title">Welcome to the Dojo Activity Center</h1>
+<br><br>
+<div id="register">
+    <h2>Registration</h2>
+    <form asp-controller="User" asp-action="Register" method="post">
+        <label asp-for="First_Name"></label>
+        <input asp-for="First_Name">
+        <span asp-validation-for="First_Name"></span>
+        <br><br>
+
+        <label asp-for="Last_Name"></label>
+        <input asp-for="Last_Name">
+        <span asp-validation-for="Last_Name"></span>
+        <br><br>
+
+        <label asp-for="Email"></label>
+        <input asp-for="Email">
+        <span asp-validation-for="Email"></span>
+        <br><br>
+
+        <label asp-for="Password"></label>
+        <input asp-for="Password">
+        <span asp-validation-for="Password"></span>
+        <br><br>
+
+        <label asp-for="Confirm_Password"></label>
+        <input asp-for="Confirm_Password">
+        <span asp-validation-for="Confirm_Password"></span>
+        <br><br>
+
+        <input type="submit" value="Register">
+    </form>
+</div>
+<div id="login">
+    <h2>Login</h2>
+    <span>@ViewBag.Error</span>
+    <form action="Login" method="post">
+        <label>Email</label>
+        <input type="text" name="Email">
+        <br><br>
+
+        <label>Password</label>
+        <input type="password" name="Password">
+        <br><br>
+
+        <input type="submit" value="Login">
+    </form>
+</div>

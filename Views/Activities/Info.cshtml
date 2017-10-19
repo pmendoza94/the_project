@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Activity";
+}
+<h1>Dojo Activity Center</h1>
+<div id="nav">
+    <a href="/Home">Home</a> | 
+    <a href="/logout">Log off</a>
+</div>
+<hr>
+<br>
+
+<br>
+<h2>@ViewBag.ThisActivity.Title</h2>
+<h5>Event Coordinator: @ViewBag.ThisActivity.Coordinator</h5>
+<h5>Description:</h5>
+<p>@ViewBag.ThisActivity.Description</p>
+<h5>Participants:</h5>
+<ul>
+    @foreach(var p in @ViewBag.ThisActivity.Participants)
+    {
+        <li>@p.User.First_Name</li>
+    }
+</ul>
